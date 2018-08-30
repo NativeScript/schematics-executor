@@ -35,28 +35,24 @@ export function run(executionOptions: ExecutionOptions) {
       switch (event.kind) {
         case 'error':
           error = true;
-
-          const desc = event.description == 'alreadyExist' ?
-            'already exists' :
-            'does not exist';
-
-          logger.warn(`ERROR! ${event.path} ${desc}.`);
+          const desc = event.description == 'alreadyExist' ? 'already exists' : 'does not exist.';
+          logger.warn(`ERROR! ${event} ${desc}.`);
           break;
         case 'update':
           loggingQueue.push(tags.oneLine`
-        ${terminal.white('UPDATE')} ${event.path} (${event.content.length} bytes)
-      `);
+            ${terminal.white('UPDATE')} ${event} (${event.content.length} bytes)
+          `);
           break;
         case 'create':
           loggingQueue.push(tags.oneLine`
-        ${terminal.green('CREATE')} ${event.path} (${event.content.length} bytes)
-      `);
+            ${terminal.green('CREATE')} ${event} (${event.content.length} bytes)
+          `);
           break;
         case 'delete':
-          loggingQueue.push(`${terminal.yellow('DELETE')} ${event.path}`);
+          loggingQueue.push(`${terminal.yellow('DELETE')} ${event}`);
           break;
         case 'rename':
-          loggingQueue.push(`${terminal.blue('RENAME')} ${event.path} => ${event.to}`);
+          loggingQueue.push(`${terminal.blue('RENAME')} ${event} => ${event.to}`);
           break;
       }
     });
