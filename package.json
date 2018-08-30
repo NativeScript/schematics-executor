@@ -17,6 +17,7 @@
   "dependencies": {
     "@angular-devkit/core": "^0.7.5",
     "@angular-devkit/schematics": "^0.7.5",
+    "@nativescript/schematics": "^0.2.5",
     "rxjs": "^6.2.2",
     "symbol-observable": "^1.2.0"
   },
