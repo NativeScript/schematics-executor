@@ -1,27 +1,30 @@
 {
   "name": "@nativescript/schematics-engine",
+  "main": "./src",
   "version": "0.0.1",
   "description": "JS library that executes schematics.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "schematics",
     "nativescript",
     "generator",
     "angular"
   ],
-  "author": "sis0k0",
-  "license": "MIT",
+  "author": {
+    "name": "NativeScript Team"
+  },
+  "contributors": [
+    "Stanimira Vlaeva <Stanimira.Vlaeva@progress.com>"
+  ],
+  "license": "Apache-2.0",
   "dependencies": {
-    "@angular-devkit/core": "^0.7.5",
-    "@angular-devkit/schematics": "^0.7.5",
+    "@angular-devkit/core": "^0.8.0-rc.0",
+    "@angular-devkit/schematics": "^0.8.0-rc.0",
     "@nativescript/schematics": "^0.2.5",
     "rxjs": "^6.2.2",
     "symbol-observable": "^1.2.0"
   },
   "devDependencies": {
+    "@types/node": "^10.9.3",
     "typescript": "^3.0.3"
   }
 }
