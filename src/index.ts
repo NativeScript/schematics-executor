@@ -6,6 +6,7 @@ import { virtualFs, normalize, tags, terminal } from '@angular-devkit/core';
 import { UnsuccessfulWorkflowExecution, DryRunEvent } from '@angular-devkit/schematics';
 
 import { ExecutionOptions } from './execution-options';
+import { getProjectName } from './utils/ng';
 
 export function run(executionOptions: ExecutionOptions) {
   return new Promise(function(resolve, reject) {
@@ -18,6 +19,11 @@ export function run(executionOptions: ExecutionOptions) {
     } = executionOptions;
     const fsHost = new virtualFs.ScopedHost(new NodeJsSyncHost(), normalize(directory));
     const workflow = new NodeWorkflow(fsHost, {});
+
+    workflow.registry.addSmartDefaultProvider(
+      'projectName',
+      (_) => getProjectName(directory),
+    );
 
     let loggingQueue: string[] = [];
     let nothingDone = true;
