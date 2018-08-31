@@ -40,19 +40,19 @@ export function run(executionOptions: ExecutionOptions) {
           break;
         case 'update':
           loggingQueue.push(tags.oneLine`
-            ${terminal.white('UPDATE')} ${event} (${event.content.length} bytes)
+            ${terminal.white('UPDATE')} ${event.path} (${event.content.length} bytes)
           `);
           break;
         case 'create':
           loggingQueue.push(tags.oneLine`
-            ${terminal.green('CREATE')} ${event} (${event.content.length} bytes)
+            ${terminal.green('CREATE')} ${event.path} (${event.content.length} bytes)
           `);
           break;
         case 'delete':
-          loggingQueue.push(`${terminal.yellow('DELETE')} ${event}`);
+          loggingQueue.push(`${terminal.yellow('DELETE')} ${event.path}`);
           break;
         case 'rename':
-          loggingQueue.push(`${terminal.blue('RENAME')} ${event} => ${event.to}`);
+          loggingQueue.push(`${terminal.blue('RENAME')} ${event.path} => ${event.to}`);
           break;
       }
     });
