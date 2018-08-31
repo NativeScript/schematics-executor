@@ -2,5 +2,5 @@
 *.ts
 !*.d.ts
 *.js.map
+*.spec.js
 /tsconfig.json
-
