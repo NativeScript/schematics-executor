@@ -1,6 +1,7 @@
 {
   "name": "@nativescript/schematics-engine",
   "main": "./src",
+  "typings": "./src",
   "version": "0.0.1",
   "description": "JS library that executes schematics.",
   "keywords": [
@@ -16,6 +17,10 @@
     "Stanimira Vlaeva <Stanimira.Vlaeva@progress.com>"
   ],
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
   "dependencies": {
     "@angular-devkit/core": "^0.8.0-rc.0",
     "@angular-devkit/schematics": "^0.8.0-rc.0",
