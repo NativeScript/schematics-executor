@@ -19,11 +19,11 @@ function loadWorkspace(executionPath: string) {
   }
 
   try {
-  const buffer = readFileSync(workspacePath);
-  const content = buffer.toString();
-  const workspace = JSON.parse(content);
+    const buffer = readFileSync(workspacePath);
+    const content = buffer.toString();
+    const workspace = JSON.parse(content);
 
-  return workspace;
+    return workspace;
   } catch (_e) {
     return {};
   }
