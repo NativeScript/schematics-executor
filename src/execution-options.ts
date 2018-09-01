@@ -5,5 +5,6 @@ export interface ExecutionOptions {
   collection?: string;
   schematic: string;
   schematicOptions?: object;
+  schematicArgs?: string[];
   directory: string;
 }
