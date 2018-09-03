@@ -1,4 +1,4 @@
-import { readdirSync, existsSync, exists } from 'fs';
+import { readdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
 import * as rimraf from 'rimraf';
