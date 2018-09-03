@@ -20,6 +20,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
+    "pretest": "npm run build",
     "test": "jest"
   },
   "dependencies": {
@@ -32,18 +33,19 @@
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/node": "^10.9.3",
+    "@types/rimraf": "^2.0.2",
     "jest": "^23.5.0",
     "mock-fs": "^4.6.0",
-    "ts-jest": "^23.1.4",
+    "rimraf": "^2.6.2",
     "typescript": "^3.0.3"
   },
   "jest": {
-    "transform": {
-      "^.+\\.ts?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|ts?)$",
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(js?)$",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "test/generated"
+    ],
     "moduleFileExtensions": [
-      "ts",
       "js",
       "json",
       "node"
