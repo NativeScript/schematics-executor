@@ -1,5 +1,5 @@
 {
-  "name": "@nativescript/schematics-engine",
+  "name": "@nativescript/schematics-executor",
   "main": "./src",
   "typings": "./src",
   "version": "0.0.1",
