@@ -10,9 +10,7 @@
     "generator",
     "angular"
   ],
-  "author": {
-    "name": "NativeScript Team"
-  },
+  "author": "NativeScript Team",
   "contributors": [
     "Stanimira Vlaeva <Stanimira.Vlaeva@progress.com>"
   ],
@@ -55,9 +53,17 @@
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-        "node_modules",
-        "src/index.js"
+      "node_modules",
+      "src/index.js"
     ],
     "verbose": true
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NativeScript/schematics-executor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NativeScript/schematics-executor/issues"
+  },
+  "homepage": "https://github.com/NativeScript/schematics-executor#readme"
 }
