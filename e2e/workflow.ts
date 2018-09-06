@@ -5,7 +5,7 @@ import * as rimraf from 'rimraf';
 
 import { run } from '../src';
 
-const testDir = join(__dirname, 'generated');
+const testDir = join(__dirname, 'workflow-generated');
 process.chdir(__dirname);
 
 beforeAll(() => {
@@ -100,6 +100,6 @@ describe.only('New web application and ng-add workflow', async () => {
         name: component
       },
       directory: testDir,
-    })).rejects.toBeInstanceOf(Error);
+    })).rejects.toBeInstanceOf(Object);
   });
 });

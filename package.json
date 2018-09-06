@@ -53,6 +53,11 @@
     "coverageReporters": [
       "text"
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+        "node_modules",
+        "src/index.js"
+    ],
+    "verbose": true
   }
 }
