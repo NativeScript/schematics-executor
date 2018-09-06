@@ -4,3 +4,4 @@
 *.js.map
 *.spec.js
 /tsconfig.json
+e2e

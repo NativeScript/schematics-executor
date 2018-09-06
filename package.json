@@ -40,10 +40,10 @@
     "typescript": "^3.0.3"
   },
   "jest": {
-    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(js?)$",
+    "testRegex": "(/e2e/.*|(\\.|/)(spec))\\.(js?)$",
     "testPathIgnorePatterns": [
       "node_modules",
-      "test/generated"
+      "e2e/generated"
     ],
     "moduleFileExtensions": [
       "js",
