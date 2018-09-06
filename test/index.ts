@@ -16,14 +16,14 @@ afterAll(() => {
   rimraf.sync(testDir);
 });
 
-describe('New web application and ng-add workflow', async () => {
+describe.only('New web application and ng-add workflow', async () => {
   const project = 'foo';
   const component = 'bar';
   const projectPath = join(testDir, 'projects', project); 
   const componentPath = join(projectPath, 'src', 'app', component);
 
   test('creates files', async () => {
-    // Create new Angular workspace
+    console.log('Creating new Angular workspace...');
     await run({
       collection: '@schematics/angular',
       schematic: 'workspace',
@@ -43,7 +43,7 @@ describe('New web application and ng-add workflow', async () => {
   });
 
   test('creates directories', async () => {
-    // Create new web app inside the workspace
+    console.log('Creating web app...');
     await run({
       collection: '@schematics/angular',
       schematic: 'application',
@@ -55,7 +55,7 @@ describe('New web application and ng-add workflow', async () => {
 
     expect(existsSync(projectPath)).toBeTruthy();
 
-    // Create new web component
+    console.log('Creating web Angular component...');
     await run({
       collection: '@schematics/angular',
       schematic: 'component',
@@ -69,15 +69,18 @@ describe('New web application and ng-add workflow', async () => {
   });
 
   test('edits files', async () => {
-    // Add {N} app to the existing web app
+    console.log('Adding {N} to the web app...');
     await run({
       schematic: 'add-ns',
+      schematicOptions: {
+        skipInstall: true,
+      },
       directory: testDir,
     })
   });
 
   test('renames files', async () => {
-    // Migrate the web component to a shared component
+    console.log('Migrating the web component to a shared component...');
     await run({
       schematic: 'migrate-component',
       schematicOptions: {
@@ -90,7 +93,7 @@ describe('New web application and ng-add workflow', async () => {
   });
 
   test('schematic error', () => {
-    // Try to create a component that already exists
+    console.log('Creating a component with a name that already exists...');
     expect(run({
       schematic: 'component',
       schematicOptions: {
