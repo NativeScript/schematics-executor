@@ -16,7 +16,7 @@ afterAll(() => {
   rimraf.sync(testDir);
 });
 
-describe.only('New web application and ng-add workflow', async () => {
+describe('New web application and ng-add workflow', async () => {
   const project = 'foo';
   const component = 'bar';
   const projectPath = join(testDir, 'projects', project); 
@@ -42,64 +42,64 @@ describe.only('New web application and ng-add workflow', async () => {
     expect(existsSync(join(testDir, '.gitignore'))).toBeTruthy();
   });
 
-  test('creates directories', async () => {
-    console.log('Creating web app...');
-    await run({
-      collection: '@schematics/angular',
-      schematic: 'application',
-      schematicOptions: {
-        name: project,
-      },
-      directory: testDir,
-    });
+  // test('creates directories', async () => {
+  //   console.log('Creating web app...');
+  //   await run({
+  //     collection: '@schematics/angular',
+  //     schematic: 'application',
+  //     schematicOptions: {
+  //       name: project,
+  //     },
+  //     directory: testDir,
+  //   });
 
-    expect(existsSync(projectPath)).toBeTruthy();
+  //   expect(existsSync(projectPath)).toBeTruthy();
 
-    console.log('Creating web Angular component...');
-    await run({
-      collection: '@schematics/angular',
-      schematic: 'component',
-      schematicOptions: {
-        name: component,
-      },
-      directory: testDir,
-    });
+  //   console.log('Creating web Angular component...');
+  //   await run({
+  //     collection: '@schematics/angular',
+  //     schematic: 'component',
+  //     schematicOptions: {
+  //       name: component,
+  //     },
+  //     directory: testDir,
+  //   });
 
-    expect(existsSync(componentPath)).toBeTruthy();
-  });
+  //   expect(existsSync(componentPath)).toBeTruthy();
+  // });
 
-  test('edits files', async () => {
-    console.log('Adding {N} to the web app...');
-    await run({
-      schematic: 'add-ns',
-      schematicOptions: {
-        skipInstall: true,
-      },
-      directory: testDir,
-    })
-  });
+  // test('edits files', async () => {
+  //   console.log('Adding {N} to the web app...');
+  //   await run({
+  //     schematic: 'add-ns',
+  //     schematicOptions: {
+  //       skipInstall: true,
+  //     },
+  //     directory: testDir,
+  //   })
+  // });
 
-  test('renames files', async () => {
-    console.log('Migrating the web component to a shared component...');
-    await run({
-      schematic: 'migrate-component',
-      schematicOptions: {
-        name: component
-      },
-      directory: testDir,
-    });
+  // test('renames files', async () => {
+  //   console.log('Migrating the web component to a shared component...');
+  //   await run({
+  //     schematic: 'migrate-component',
+  //     schematicOptions: {
+  //       name: component
+  //     },
+  //     directory: testDir,
+  //   });
 
-    expect(existsSync(join(componentPath, `${component}.tns.html`)));
-  });
+  //   expect(existsSync(join(componentPath, `${component}.tns.html`)));
+  // });
 
-  test('schematic error', () => {
-    console.log('Creating a component with a name that already exists...');
-    expect(run({
-      schematic: 'component',
-      schematicOptions: {
-        name: component
-      },
-      directory: testDir,
-    })).rejects.toBeInstanceOf(Object);
-  });
+  // test('schematic error', () => {
+  //   console.log('Creating a component with a name that already exists...');
+  //   expect(run({
+  //     schematic: 'component',
+  //     schematicOptions: {
+  //       name: component
+  //     },
+  //     directory: testDir,
+  //   })).rejects.toBeInstanceOf(Object);
+  // });
 });
