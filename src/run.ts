@@ -44,7 +44,7 @@ export function run(executionOptions: ExecutionOptions) {
         case 'error':
           error = true;
           const desc = event.description == 'alreadyExist' ? 'already exists' : 'does not exist.';
-          logger.warn(`ERROR! ${event} ${desc}.`);
+          logger.warn(`ERROR! ${event.path} ${desc}.`);
           break;
         case 'update':
           loggingQueue.push(tags.oneLine`
