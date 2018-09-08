@@ -1,9 +1,11 @@
 **/*.tgz
 *.ts
 !*.d.ts
-*.js.map
+*.js
 *.spec.js
+*.spec.js.map
 *.spec.d.ts
 /tsconfig.json
 e2e
 .vscode
+!dist/*.js

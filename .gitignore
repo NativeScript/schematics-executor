@@ -4,4 +4,7 @@ node_modules
 **/*.js.map
 **/*.d.ts
 *.tgz
+!webpack.config.js
+!build-loader.js
+dist
 

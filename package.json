@@ -1,6 +1,6 @@
 {
   "name": "@nativescript/schematics-executor",
-  "main": "./src",
+  "main": "./dist",
   "typings": "./src",
   "version": "0.0.1",
   "description": "JS library that executes schematics.",
@@ -16,26 +16,28 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack || true",
     "prepare": "npm run build",
-    "pretest": "npm run build",
+    "pretest": "tsc",
     "test": "jest"
   },
-  "dependencies": {
-    "@angular-devkit/core": "^0.8.0-rc.1",
-    "@angular-devkit/schematics": "^0.8.0-rc.1",
-    "@nativescript/schematics": "^0.3.0-rc.1",
-    "rxjs": "^6.2.2",
-    "symbol-observable": "^1.2.0"
-  },
   "devDependencies": {
+    "@angular-devkit/core": "0.8.0",
+    "@angular-devkit/schematics": "0.8.0",
+    "@nativescript/schematics": "^0.3.0-rc.1",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.9.3",
     "@types/rimraf": "^2.0.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "brfs": "^2.0.1",
     "jest": "^23.5.0",
     "mock-fs": "^4.6.0",
     "rimraf": "^2.6.2",
-    "typescript": "^3.0.3"
+    "rxjs": "6.2.2",
+    "symbol-observable": "1.2.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.2",
+    "webpack-command": "^0.4.1"
   },
   "jest": {
     "testRegex": "(/e2e/.*|(\\.|/)(spec))\\.(js?)$",
@@ -65,5 +67,6 @@
   "bugs": {
     "url": "https://github.com/NativeScript/schematics-executor/issues"
   },
-  "homepage": "https://github.com/NativeScript/schematics-executor#readme"
+  "homepage": "https://github.com/NativeScript/schematics-executor#readme",
+  "dependencies": {}
 }
